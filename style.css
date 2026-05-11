@@ -1,0 +1,10 @@
+/* Mengimpor font 'Inter' dari Google Fonts agar terlihat modern */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Menerapkan font tersebut ke seluruh elemen body */
+body { 
+    font-family: 'Inter', sans-serif; 
+}
+
+/* Catatan: Kamu bisa menambahkan kode CSS tambahan (Custom CSS) 
+   di sini jika ada elemen yang tidak bisa diatur oleh Tailwind */
