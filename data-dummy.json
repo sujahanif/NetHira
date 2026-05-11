@@ -1,0 +1,12 @@
+[
+  { "id": 101, "name": "core-router-01", "role": "ROUTER", "ip": "10.0.0.1", "status": "ONLINE" },
+  { "id": 102, "name": "dist-switch-01", "role": "SWITCH", "ip": "10.0.1.2", "status": "ONLINE" },
+  { "id": 103, "name": "web-server-prod", "role": "SERVER", "ip": "192.168.10.50", "status": "ONLINE" },
+  { "id": 104, "name": "db-server-main", "role": "SERVER", "ip": "192.168.10.51", "status": "ONLINE" },
+  { "id": 105, "name": "backup-server", "role": "SERVER", "ip": "192.168.10.100", "status": "OFFLINE" },
+  { "id": 106, "name": "access-sw-fl1", "role": "SWITCH", "ip": "10.0.2.10", "status": "ONLINE" },
+  { "id": 107, "name": "access-sw-fl2", "role": "SWITCH", "ip": "10.0.2.11", "status": "OFFLINE" },
+  { "id": 108, "name": "gw-router-ext", "role": "ROUTER", "ip": "172.16.0.1", "status": "ONLINE" },
+  { "id": 109, "name": "mail-server", "role": "SERVER", "ip": "192.168.20.25", "status": "ONLINE" },
+  { "id": 110, "name": "test-server-dev", "role": "SERVER", "ip": "10.10.10.99", "status": "OFFLINE" }
+]
