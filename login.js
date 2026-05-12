@@ -6,22 +6,28 @@ loginForm.addEventListener('submit', function(event) {
     const usernameValue = document.getElementById('username').value;
     const passwordValue = document.getElementById('password').value;
 
-    if (usernameValue === 'admin' && passwordValue === 'admin') {
+    // Ambil kredensial dari memori browser, atau gunakan default admin/admin
+    const savedCreds = JSON.parse(localStorage.getItem('netboxCreds')) || { 
+        username: 'admin', 
+        password: 'admin',
+        fullname: 'Administrator'
+    };
+
+    // Cocokkan inputan dengan data yang tersimpan
+    if (usernameValue === savedCreds.username && passwordValue === savedCreds.password) {
         sessionStorage.setItem('isLoggedIn', 'true');
         
-        // [KODE BARU] SweetAlert Sukses Login
         Swal.fire({
             icon: 'success',
             title: 'Berhasil!',
             text: 'Mengalihkan ke Dashboard...',
-            showConfirmButton: false, // Sembunyikan tombol OK
-            timer: 1500 // Hilang otomatis dalam 1,5 detik
+            showConfirmButton: false,
+            timer: 1500
         }).then(() => {
             window.location.href = 'dashboard.html';
         });
         
     } else {
-        // [KODE BARU] SweetAlert Gagal Login
         Swal.fire({
             icon: 'error',
             title: 'Akses Ditolak',

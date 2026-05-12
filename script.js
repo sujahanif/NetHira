@@ -14,11 +14,7 @@ if (sessionStorage.getItem('isLoggedIn') !== 'true') {
     window.location.href = 'login.html';
 }
 
-let devicesData = JSON.parse(localStorage.getItem('netboxData')) || [
-    { id: 1, name: 'huawei', role: 'SERVER', ip: '10.100.1.20', status: 'ONLINE' },
-    { id: 2, name: 'cisco-core', role: 'SWITCH', ip: '10.100.1.1', status: 'ONLINE' },
-    { id: 3, name: 'mikrotik-gw', role: 'ROUTER', ip: '192.168.1.1', status: 'OFFLINE' }
-];
+let devicesData = JSON.parse(localStorage.getItem('netboxData')) || [];
 
 function saveToLocalStorage() {
     localStorage.setItem('netboxData', JSON.stringify(devicesData));
@@ -42,18 +38,18 @@ function renderTable(dataToRender) {
             : '<span class="bg-red-100 text-red-600 text-[10px] font-bold px-3 py-1 rounded-full border border-red-200">OFFLINE</span>';
 
         const rowHTML = `
-            <tr class="hover:bg-blue-50/50 transition">
-                <td class="py-4 px-6 font-bold text-gray-700">${device.name}</td>
+            <tr class="hover:bg-blue-50/50 dark:hover:bg-gray-800/50 transition">
+                <td class="py-4 px-6 font-bold text-gray-700 dark:text-gray-200">${device.name}</td>
                 <td class="py-4 px-6">
-                    <span class="bg-gray-100 border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded">${device.role}</span>
+                    <span class="bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-[10px] font-bold px-2 py-1 rounded">${device.role}</span>
                 </td>
-                <td class="py-4 px-6 font-semibold text-[#2a56f6]">${device.ip}</td>
+                <td class="py-4 px-6 font-semibold text-[#2a56f6] dark:text-blue-400">${device.ip}</td>
                 <td class="py-4 px-6">${statusBadge}</td>
                 <td class="py-4 px-6 flex gap-2">
-                    <button onclick="openEditModal(${device.id})" class="text-blue-400 hover:text-blue-600 hover:bg-blue-50 p-2 rounded transition" title="Edit">
+                    <button onclick="openEditModal(${device.id})" class="text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-700 p-2 rounded transition" title="Edit">
                         <i class="fa-solid fa-pen"></i>
                     </button>
-                    <button onclick="deleteDevice(${device.id})" class="text-red-400 hover:text-red-600 hover:bg-red-50 p-2 rounded transition" title="Delete">
+                    <button onclick="deleteDevice(${device.id})" class="text-red-400 hover:text-red-600 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-gray-700 p-2 rounded transition" title="Delete">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
